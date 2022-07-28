@@ -10,11 +10,10 @@ from deep_translator import GoogleTranslator
 
 translated_elements = {}
 ignored_expressions = []
+detect_pattern, restore_pattern = re.compile(r"{{\s*(\w+).(\w+)\s*}}"), re.compile(r'_(\d+)_')
 
-DETECT_EXPRESSION, RESTORE_TEXT = re.compile(r"{{\s*(\w+).(\w+)\s*}}"), re.compile(r'_(\d+)_')
 
-
-def replace(match_object) -> str:
+def detect(match_object) -> str:
     ignored_expressions.append(match_object.group())
     return '_%d_' % (len(ignored_expressions) - 1)
 
@@ -29,9 +28,9 @@ def translate(translation_client, source_file, destination_file) -> None:
             data = json.load(source)
 
         for count, key in enumerate(data):
-            original_text = DETECT_EXPRESSION.sub(replace, data[key])
+            original_text = detect_pattern.sub(detect, data[key])
             translated_text = translation_client.translate(original_text)
-            translated_text = RESTORE_TEXT.sub(restore, translated_text)
+            translated_text = restore_pattern.sub(restore, translated_text)
             translated_elements[key] = translated_text
             print(f'{count + 1}: {data[key]:<35} -> {translated_text}')
 
