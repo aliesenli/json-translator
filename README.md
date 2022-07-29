@@ -3,14 +3,17 @@ translate json files without considering {{ expressions }}
 
 ### example:
 translates (EN): <br>
-```
-Your name is {{ user.firstname }}
+```json
+{
+   "profile_user_name": "Your name is {{ user.firstname }}"
+}
 ```
 to (DE): <br>
+```json
+{
+   "profile_user_name": "Ihr Name ist {{ user.firstname }}"
+}
 ```
-Ihr Name ist {{ user.firstname }}
-```
-
 everything inside expressions <ins>won't</ins> get translated.
 
 ### usage:
