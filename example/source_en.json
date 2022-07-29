@@ -1,0 +1,9 @@
+{
+   "profile_user_name": "Your name is {{ user.firstname }}",
+   "item_saved_by_user_at": "item saved by {{ user.name }} at {{ time }}",
+   "retry_request_amount": "Retrying request, attempt: {{ amount }}",
+   "connection_database_name": "You are connected with: {{ database.name }}",
+   "change_current_location_to": "Do you want to change {{ user.location }} to {{ newLocation }}",
+   "user_settings": "User settings",
+   "user_profile": "User profile"
+}

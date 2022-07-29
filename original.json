@@ -1,6 +1,0 @@
-{
-   "greet_user_by_name": "Hello {{ user.name }}",
-   "saved_time_with_expression": "item saved by {{user.name }} at {{ time }}",
-   "settings": "settings",
-   "profile": "profile"
-}
