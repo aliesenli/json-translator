@@ -1,6 +1,9 @@
 # json-translator
 translate json files without considering {{ expressions }}
 
+<img src="https://github.com/aliesenli/json-translator/blob/master/json-translator/img/example-usage-terminal.png">
+<img src="img/example-usage-terminal.png">
+
 ### example:
 translates (EN): <br>
 ```json
