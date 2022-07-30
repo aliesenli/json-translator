@@ -8,8 +8,7 @@ import argparse
 
 from deep_translator import GoogleTranslator
 
-translated_elements = {}
-ignored_expressions = []
+translated_elements, ignored_expressions = {}, []
 detect_pattern, restore_pattern = re.compile(r"{{\s*(\w+).(\w+)\s*}}"), re.compile(r'_(\d+)_')
 
 
@@ -27,12 +26,14 @@ def translate(translation_client, source_file, destination_file) -> None:
         with open(source_file, encoding='utf-8') as source:
             data = json.load(source)
 
+        longest_value_length = len(max(data.values(), key=len))
+
         for count, key in enumerate(data):
             original_text = detect_pattern.sub(detect, data[key])
             translated_text = translation_client.translate(original_text)
             translated_text = restore_pattern.sub(restore, translated_text)
             translated_elements[key] = translated_text
-            print(f'{count + 1}: {data[key]:<35} -> {translated_text}')
+            print(f'{count + 1}: {data[key]:-<{longest_value_length}}-> {translated_text}')
 
         with codecs.open(destination_file, 'w', 'utf-8') as destination:
             json.dump(translated_elements, destination, indent=3, ensure_ascii=False)
@@ -41,7 +42,7 @@ def translate(translation_client, source_file, destination_file) -> None:
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Translate JSON file to another language.')
+    parser = argparse.ArgumentParser(description='Translate JSON files to target language ignoring expressions.')
     parser.add_argument('-s', help='Path to the source file', required=True)
     parser.add_argument('-d', help='Path to the destination file', required=True)
     parser.add_argument('-l', help='Target Language to be translated into. Allowed values are: ' + ', '.join(
@@ -54,7 +55,9 @@ def main():
     target_language = args.l
 
     if os.path.exists(source_file):
-        if not destination_file.endswith('.json'):
+        if not str.strip(os.path.basename(destination_file).split('.')[0]):
+            destination_file += f'destination_{target_language}.json'
+        if os.path.basename(destination_file).split('.')[0] and not destination_file.endswith('.json'):
             destination_file += '.json'
 
         translation_client = GoogleTranslator(source='auto', target=target_language)
