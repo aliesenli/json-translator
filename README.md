@@ -1,30 +1,29 @@
-# json-translator
-translate json files without considering {{ expressions }}
+# JSON-Translator
+Translate json files ignoring {{ expressions }}.
 
-<img src="https://github.com/aliesenli/json-translator/blob/master/json-translator/img/example-usage-terminal.png">
 <img src="img/example-usage-terminal.png">
 
-### example:
-translates (EN): <br>
+### Example:
+Translate (english): <br>
 ```json
 {
    "profile_user_name": "Your name is {{ user.firstname }}"
 }
 ```
-to (DE): <br>
+To (german): <br>
 ```json
 {
    "profile_user_name": "Ihr Name ist {{ user.firstname }}"
 }
 ```
-everything inside expressions <ins>won't</ins> get translated.
+Everything inside {{ expressions }} <ins>won't</ins> get translated.
 
-### usage:
+### Usage:
 ```bash
 python main.py -s 'source_en.json' -d 'destination_de.json' -l 'german'
 ```
-```-s``` Path to the source file<br>
-```-d``` Path to the destination file<br>
-```-l``` Target Language to be translated into<br>
+```[-s]``` Path of source file<br>
+```[-d]``` Path of destination file<br>
+```[-l]``` Target language to translate to<br>
 
-use ```--help``` to see list of supported languages.
+Use ```[--help]``` to see list of supported languages.
