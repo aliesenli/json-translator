@@ -1,5 +1,5 @@
 {
-   "profile_user_name": "Nazywasz się {{ user.firstname }}",
+   "profile_user_name": "Nazywasz się {{ user.firstname }} i w Twojej lokalizacji jest {{ user.time }}",
    "item_saved_by_user_at": "element zapisany przez {{ user.name }} o {{ time }}",
    "retry_request_amount": "Ponawiam żądanie, próba: {{ amount }}",
    "connection_database_name": "Jesteś połączony z: {{ database.name }}",

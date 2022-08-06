@@ -1,5 +1,5 @@
 {
-   "profile_user_name": "Your name is {{ user.firstname }}",
+   "profile_user_name": "Your name is {{ user.firstname }} and it is {{ user.time }} at your location",
    "item_saved_by_user_at": "item saved by {{ user.name }} at {{ time }}",
    "retry_request_amount": "Retrying request, attempt: {{ amount }}",
    "connection_database_name": "You are connected with: {{ database.name }}",

@@ -1,9 +1,9 @@
 {
-   "profile_user_name": "Adınız {{ user.firstname }}",
+   "profile_user_name": "Adınız {{ user.firstname }} ve bulunduğunuz yerde {{ user.time }}",
    "item_saved_by_user_at": "öğe {{ user.name }} tarafından {{ time }} tarihinde kaydedildi",
    "retry_request_amount": "İstek yeniden deneniyor, deneme: {{ amount }}",
    "connection_database_name": "Şuna bağlısınız: {{ database.name }}",
-   "change_current_location_to": "{{ user.location }}'i {{ newLocation }} olarak değiştirmek istiyor musunuz?",
+   "change_current_location_to": "{{ user.location }}'yı {{ newLocation }} olarak değiştirmek istiyor musunuz?",
    "user_settings": "Kullanıcı ayarları",
    "user_profile": "Kullanıcı profili"
 }

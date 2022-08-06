@@ -1,0 +1,9 @@
+{
+   "profile_user_name": "Ihr Name ist {{ user.firstname }} und an Ihrem Standort ist es {{ user.time }}",
+   "item_saved_by_user_at": "Artikel gespeichert von {{ user.name }} um {{ time }}",
+   "retry_request_amount": "Anfrage wird wiederholt, Versuch: {{ amount }}",
+   "connection_database_name": "Sie sind verbunden mit: {{ database.name }}",
+   "change_current_location_to": "Möchten Sie {{ user.location }} in {{ newLocation }} ändern",
+   "user_settings": "Benutzereinstellungen",
+   "user_profile": "Benutzerprofil"
+}
