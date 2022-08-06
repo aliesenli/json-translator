@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "json-translator"
+version = "1.0.0"
+description = "Translate JSON file to target language ignoring expressions"
+authors = ["Ali Riza Esenli <ali.esenli@hotmail.com>"]
+
+packages = [
+    { include = "src", from="." }
+]
+
+[tool.poetry.scripts]
+translate = "src.main:main"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+deep-translator = {url = "https://github.com/nidhaloff/deep-translator/archive/refs/tags/v1.8.3.tar.gz"}
+
+[tool.poetry.dev-dependencies]
+deep-translator = {url = "https://github.com/nidhaloff/deep-translator/archive/refs/tags/v1.8.3.tar.gz"}
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
