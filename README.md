@@ -1,26 +1,31 @@
 # JSON-Translator
 Translate json files ignoring {{ expressions }}.
 
-<img src="img/example-usage-terminal.png">
+<img src="static/example-usage-terminal.png">
 
 ### Example:
 Translate (english): <br>
 ```json
 {
-   "profile_user_name": "Your name is {{ user.firstname }}"
+   "profile_user_name": "Your name is {{ user.firstname }} and it is {{ user.time }} at your location"
 }
 ```
 To (german): <br>
 ```json
 {
-   "profile_user_name": "Ihr Name ist {{ user.firstname }}"
+   "profile_user_name": "Ihr Name ist {{ user.firstname }} und an ihrem Standort ist es {{ user.time }}"
 }
 ```
 Everything inside {{ expressions }} <ins>won't</ins> get translated.
 
+### Installation:
+```
+poetry install
+```
+
 ### Usage:
-```bash
-python main.py -s 'source_en.json' -d 'destination_de.json' -l 'german'
+```commandline
+poetry run translate -s 'example\source_english.json' -d 'example\destination_german.json' -l 'german'
 ```
 ```[-s]``` Path of source file<br>
 ```[-d]``` Path of destination file<br>
