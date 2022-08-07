@@ -1,16 +1,16 @@
-# JSON-Translator
+[![Build](https://github.com/aliesenli/json-translator/actions/workflows/poetry.yml/badge.svg)](https://github.com/aliesenli/json-translator/actions/workflows/poetry.yml)
+# JSON-Translator 
 Translate json files ignoring {{ expressions }}.
 
 <img src="static/example-usage-terminal.png">
 
-### Example:
-Translate (english): <br>
+Translate from source language e.g. english <br>
 ```json
 {
    "profile_user_name": "Your name is {{ user.firstname }} and it is {{ user.time }} at your location"
 }
 ```
-To (german): <br>
+To target language e.g. german <br>
 ```json
 {
    "profile_user_name": "Ihr Name ist {{ user.firstname }} und an ihrem Standort ist es {{ user.time }}"
@@ -24,7 +24,7 @@ poetry install
 ```
 
 ### Usage:
-```commandline
+```csharp
 poetry run translate -s 'example\source_english.json' -d 'example\destination_german.json' -l 'german'
 ```
 ```[-s]``` Path of source file<br>
